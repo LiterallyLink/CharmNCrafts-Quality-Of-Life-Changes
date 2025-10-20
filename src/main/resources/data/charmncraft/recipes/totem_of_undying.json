@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EHE",
+    "GIG",
+    " B "
+  ],
+  "key": {
+    "E": {
+      "item": "charmncraft:emerald_nugget"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "H": {
+      "item": "minecraft:golden_helmet"
+    },
+    "I": {
+      "item": "minecraft:end_crystal"
+    },
+    "B": {
+      "item": "minecraft:gold_block"
+    }
+  },
+  "result": {
+    "item": "minecraft:totem_of_undying",
+    "count": 1
+  }
+}

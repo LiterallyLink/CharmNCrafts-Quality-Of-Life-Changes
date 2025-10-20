@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PNP",
+    "NHN",
+    "PNP"
+  ],
+  "key": {
+    "H": {
+      "item": "minecraft:player_head"
+    },
+    "P": {
+      "item": "minecraft:porkchop"
+    },
+    "N": {
+      "item": "minecraft:nether_wart"
+    }
+  },
+  "result": {
+    "item": "minecraft:piglin_head",
+    "count": 1
+  }
+}

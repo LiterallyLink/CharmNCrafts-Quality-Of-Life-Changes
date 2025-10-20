@@ -1,0 +1,54 @@
+# Gradle
+.gradle/
+build/
+out/
+*.jar
+*.war
+*.zip
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+*.swp
+*.swo
+*~
+
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+*.lnk
+
+# Linux
+.directory
+
+# Environment/Local
+.env
+local.properties
+gradle-app.setting
+
+# Run files (Minecraft instances created during testing)
+run/
+
+# Gradle wrapper - OPTIONAL
+# Uncomment the next two lines if you want to include gradle-wrapper.jar
+# (most projects DO include the wrapper, but some prefer not to)
+# gradle-wrapper.jar
+# .gradle/wrapper/

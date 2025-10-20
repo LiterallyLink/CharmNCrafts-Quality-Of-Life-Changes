@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " W ",
+    "STS",
+    " S "
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    "S": {
+      "item": "minecraft:soul_sand"
+    },
+    "T": {
+      "item": "minecraft:totem_of_undying"
+    }
+  },
+  "result": {
+    "item": "charmncraft:withered_totem",
+    "count": 1
+  }
+}

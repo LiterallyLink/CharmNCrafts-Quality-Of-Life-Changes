@@ -17,7 +17,8 @@ public class TentacledTotemItem extends SingleUseTotemItem {
         super(settings);
     }
 
-    public static boolean useTotem(ItemStack stack, LivingEntity entity) {
+    @Override
+    public boolean useTotem(ItemStack stack, LivingEntity entity) {
         // Only trigger if player is underwater
         if (!entity.isSubmergedInWater()) {
             return false;

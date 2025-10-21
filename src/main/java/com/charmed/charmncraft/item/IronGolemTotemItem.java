@@ -23,19 +23,10 @@ public class IronGolemTotemItem extends SingleUseTotemItem {
         return false;
     }
 
-    public static boolean useTotem(ItemStack stack, LivingEntity entity) {
+    @Override
+    public boolean useTotem(ItemStack stack, LivingEntity entity) {
         // Apply base totem effects
-        entity.setHealth(1.0F);
-        entity.clearStatusEffects();
-        entity.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 900, 1));
-        entity.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 100, 1));
-        entity.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 800, 0));
-
-        entity.getWorld().sendEntityStatus(entity, (byte) 35);
-
-        if (entity instanceof ServerPlayerEntity player) {
-            player.incrementStat(Stats.USED.getOrCreateStat((Item) stack.getItem()));
-        }
+        applyBaseEffects(entity, stack);
 
         // Spawn 3 iron golems around the player
         spawnGolems(entity, GOLEM_COUNT, SPAWN_RADIUS);
@@ -44,7 +35,7 @@ public class IronGolemTotemItem extends SingleUseTotemItem {
         return true;
     }
 
-    private static void spawnGolems(LivingEntity owner, int count, double radius) {
+    private void spawnGolems(LivingEntity owner, int count, double radius) {
         if (owner.getWorld().isClient) {
             return;
         }

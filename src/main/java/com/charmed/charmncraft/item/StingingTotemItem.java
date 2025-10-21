@@ -19,7 +19,8 @@ public class StingingTotemItem extends SingleUseTotemItem {
         super(settings);
     }
 
-    public static boolean useTotem(ItemStack stack, LivingEntity entity) {
+    @Override
+    public boolean useTotem(ItemStack stack, LivingEntity entity) {
         // Apply base totem effects (healing, regeneration, etc.)
         applyBaseEffects(entity, stack);
 
@@ -33,14 +34,13 @@ public class StingingTotemItem extends SingleUseTotemItem {
     /**
      * Applies Poison to all mobs within EFFECT_RADIUS of the player.
      */
-    private static void applyPoisonToNearbyMobs(LivingEntity entity) {
+    private void applyPoisonToNearbyMobs(LivingEntity entity) {
         BlockPos playerPos = entity.getBlockPos();
         Box effectBox = new Box(playerPos).expand(EFFECT_RADIUS);
 
         entity.getWorld()
             .getOtherEntities(entity, effectBox, targetEntity -> targetEntity instanceof LivingEntity)
             .stream()
-            .filter(targetEntity -> targetEntity instanceof LivingEntity)
             .map(targetEntity -> (LivingEntity) targetEntity)
             .filter(livingEntity -> !livingEntity.isPlayer()) // Don't affect players
             .forEach(livingEntity -> livingEntity.addStatusEffect(

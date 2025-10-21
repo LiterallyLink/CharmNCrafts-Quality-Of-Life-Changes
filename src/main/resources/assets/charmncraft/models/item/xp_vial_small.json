@@ -1,0 +1,44 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "charmncraft:item/xp_vial_small"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "fill": 0.0
+      },
+      "model": "charmncraft:item/xp_vial/small/empty"
+    },
+    {
+      "predicate": {
+        "fill": 0.1
+      },
+      "model": "charmncraft:item/xp_vial/small/almost_empty"
+    },
+    {
+      "predicate": {
+        "fill": 0.25
+      },
+      "model": "charmncraft:item/xp_vial/small/barely_full"
+    },
+    {
+      "predicate": {
+        "fill": 0.5
+      },
+      "model": "charmncraft:item/xp_vial/small/half_full"
+    },
+    {
+      "predicate": {
+        "fill": 0.75
+      },
+      "model": "charmncraft:item/xp_vial/small/nearly_full"
+    },
+    {
+      "predicate": {
+        "fill": 1.0
+      },
+      "model": "charmncraft:item/xp_vial/small/full"
+    }
+  ]
+}

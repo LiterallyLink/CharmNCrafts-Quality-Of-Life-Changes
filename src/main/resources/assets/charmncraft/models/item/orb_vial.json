@@ -1,0 +1,44 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "charmncraft:item/orb_vial"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "fill": 0.0
+      },
+      "model": "charmncraft:item/orb_vial/empty"
+    },
+    {
+      "predicate": {
+        "fill": 0.1
+      },
+      "model": "charmncraft:item/orb_vial/almost_empty"
+    },
+    {
+      "predicate": {
+        "fill": 0.25
+      },
+      "model": "charmncraft:item/orb_vial/barely_full"
+    },
+    {
+      "predicate": {
+        "fill": 0.5
+      },
+      "model": "charmncraft:item/orb_vial/half_full"
+    },
+    {
+      "predicate": {
+        "fill": 0.75
+      },
+      "model": "charmncraft:item/orb_vial/nearly_full"
+    },
+    {
+      "predicate": {
+        "fill": 1.0
+      },
+      "model": "charmncraft:item/orb_vial/full"
+    }
+  ]
+}

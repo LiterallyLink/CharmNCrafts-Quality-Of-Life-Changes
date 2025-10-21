@@ -24,9 +24,10 @@ public class VoidTotemItem extends SingleUseTotemItem {
         super(settings);
     }
 
-    public static boolean useTotem(ItemStack stack, LivingEntity entity) {
+    @Override
+    public boolean useTotem(ItemStack stack, LivingEntity entity) {
         entity.setHealth(1.0F);
-        
+
         entity.clearStatusEffects();
         entity.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 200, 0));
         // Add slow falling to prevent fall damage when landing
@@ -39,13 +40,13 @@ public class VoidTotemItem extends SingleUseTotemItem {
             Vec3d spawnPos = Vec3d.ofCenter(player.getWorld().getSpawnPos());
 
             player.teleport(spawnPos.x, spawnPos.y, spawnPos.z);
-            
+
             // Reset fall distance to prevent any accumulated fall damage
             player.fallDistance = 0.0F;
         }
 
         stack.decrement(1);
-        
+
         return true;
     }
 }

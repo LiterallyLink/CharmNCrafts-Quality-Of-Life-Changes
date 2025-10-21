@@ -21,25 +21,13 @@ public class TotemOfNeverdyingItem extends SingleUseTotemItem {
         super(settings);
     }
 
-    public static boolean useTotem(ItemStack stack, LivingEntity entity) {
+    @Override
+    public boolean useTotem(ItemStack stack, LivingEntity entity) {
         // Get current lives, default to MAX_LIVES if not set
         int lives = getLives(stack);
 
         // Apply base totem effects
-        entity.setHealth(1.0F);
-        entity.clearStatusEffects();
-        entity.addStatusEffect(new net.minecraft.entity.effect.StatusEffectInstance(
-            net.minecraft.entity.effect.StatusEffects.REGENERATION, 900, 1));
-        entity.addStatusEffect(new net.minecraft.entity.effect.StatusEffectInstance(
-            net.minecraft.entity.effect.StatusEffects.ABSORPTION, 100, 1));
-        entity.addStatusEffect(new net.minecraft.entity.effect.StatusEffectInstance(
-            net.minecraft.entity.effect.StatusEffects.FIRE_RESISTANCE, 800, 0));
-
-        entity.getWorld().sendEntityStatus(entity, (byte) 35);
-
-        if (entity instanceof ServerPlayerEntity player) {
-            player.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
-        }
+        applyBaseEffects(entity, stack);
 
         // Decrement life count
         lives--;
@@ -56,7 +44,7 @@ public class TotemOfNeverdyingItem extends SingleUseTotemItem {
     /**
      * Gets the remaining lives from NBT data. Defaults to MAX_LIVES for new totems.
      */
-    private static int getLives(ItemStack stack) {
+    private int getLives(ItemStack stack) {
         NbtCompound tag = stack.getOrCreateNbt();
         int lives = tag.getInt(LIVES_KEY);
         // If lives is 0 (unset), default to MAX_LIVES
@@ -66,7 +54,7 @@ public class TotemOfNeverdyingItem extends SingleUseTotemItem {
     /**
      * Sets the remaining lives in NBT data.
      */
-    private static void setLives(ItemStack stack, int lives) {
+    private void setLives(ItemStack stack, int lives) {
         stack.getOrCreateNbt().putInt(LIVES_KEY, Math.max(0, lives));
     }
 

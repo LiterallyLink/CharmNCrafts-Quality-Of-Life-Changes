@@ -18,7 +18,11 @@ public class SingleUseTotemItem extends Item {
         super(settings);
     }
 
-    public static boolean useTotem(ItemStack stack, LivingEntity entity) {
+    /**
+     * Activates the totem effect. Can be overridden by subclasses for custom effects.
+     * Returns true if the totem successfully activated.
+     */
+    public boolean useTotem(ItemStack stack, LivingEntity entity) {
         applyBaseEffects(entity, stack);
         stack.decrement(1);
         return true;
@@ -28,7 +32,7 @@ public class SingleUseTotemItem extends Item {
      * Applies standard totem effects: healing, regeneration, absorption, fire resistance.
      * Used by all custom totems.
      */
-    protected static void applyBaseEffects(LivingEntity entity, ItemStack stack) {
+    protected void applyBaseEffects(LivingEntity entity, ItemStack stack) {
         entity.setHealth(1.0F);
         entity.clearStatusEffects();
         entity.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 900, 1));

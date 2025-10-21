@@ -17,7 +17,8 @@ public class LoyalTotemItem extends SingleUseTotemItem {
         super(settings);
     }
 
-    public static boolean useTotem(ItemStack stack, LivingEntity entity) {
+    @Override
+    public boolean useTotem(ItemStack stack, LivingEntity entity) {
         // Apply base totem effects
         applyBaseEffects(entity, stack);
 
@@ -40,7 +41,7 @@ public class LoyalTotemItem extends SingleUseTotemItem {
     /**
      * Efficiently searches for and consumes an amethyst block from inventory or offhand.
      */
-    private static boolean consumeAmethystBlock(ServerPlayerEntity player) {
+    private boolean consumeAmethystBlock(ServerPlayerEntity player) {
         // Check main inventory
         for (ItemStack invStack : player.getInventory().main) {
             if (invStack.getItem() == Items.AMETHYST_BLOCK) {

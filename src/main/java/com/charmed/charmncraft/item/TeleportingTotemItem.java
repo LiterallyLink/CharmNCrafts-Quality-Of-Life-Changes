@@ -17,7 +17,8 @@ public class TeleportingTotemItem extends SingleUseTotemItem {
         super(settings);
     }
 
-    public static boolean useTotem(ItemStack stack, LivingEntity entity) {
+    @Override
+    public boolean useTotem(ItemStack stack, LivingEntity entity) {
         // Apply base totem effects
         applyBaseEffects(entity, stack);
 
@@ -26,11 +27,11 @@ public class TeleportingTotemItem extends SingleUseTotemItem {
             Vec3d currentPos = entity.getPos();
             double angle = entity.getWorld().random.nextDouble() * 2 * Math.PI;
             double distance = 25.0;
-            
+
             double x = currentPos.x + Math.cos(angle) * distance;
             double z = currentPos.z + Math.sin(angle) * distance;
             double y = currentPos.y;
-            
+
             player.teleport(x, y, z);
         }
 
